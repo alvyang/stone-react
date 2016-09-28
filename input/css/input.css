@@ -1,0 +1,52 @@
+\
+/*  全局 start */
+.input-liv {
+    width: 90%;
+    margin: 0 auto;
+}
+.input-liv .input-liv-label,
+.input-liv .input-liv-package,
+.input-liv .input-liv-verifiCode{
+    display: inline-block;
+    vertical-align: middle;
+}
+.input-liv .hidden{
+    display: none;
+}
+.input-liv .display{
+    display: block;
+}
+/* 全局 end */
+
+.input-liv-label{
+    width: 25%;
+    font-size: 13px;
+}
+.input-liv-package{
+    position: relative;
+    width: 56%;
+    margin-left: 2%;
+}
+.input-liv-package .input-liv-inp{
+	border:1px solid #cdcdcd;
+    width: 100%;
+    height: 30px;
+}
+.input-liv-package .input-liv-error{
+    position: absolute;
+    top:  100%;
+    left: 0;
+    z-index: 2;
+    height: 50%;
+    margin-top: 2px;
+    padding: 2px 5px;
+    font-size: 12px;
+    color: #e62b26;
+}
+.input-liv-package .input-liv-error img{
+    height: 100%;
+}
+.input-liv-verifiCode{
+    width: 15%;
+    margin-left: 2%;
+}
