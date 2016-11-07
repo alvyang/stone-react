@@ -1,7 +1,4 @@
-//require("../css/input_liv.css");
-var React = require("react");
-var ReactDom = require("react-dom");
-
+import React from "react"
 
 var userNameReg = /^(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]{6,20}$/,
     mobilePhoneReg = /^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/g,
@@ -29,8 +26,8 @@ var InputLiv = React.createClass({
     
     componentDidMount: function () {
         var doc = document,
-            input = doc.querySelector(".input-liv-inp"),
-            label = doc.querySelector(".input-liv-label");
+        input = doc.querySelector(".input-liv-inp"),
+        label = doc.querySelector(".input-liv-label");
         this.init();
         input.setAttribute("maxlength",this.init().maxLen);
         input.setAttribute("placeholder",this.init().placeHolder);
@@ -46,7 +43,7 @@ var InputLiv = React.createClass({
     
     focus: function () {
         var doc = document,
-            classN = "";
+        classN = "";
         doc.querySelector(".input-liv-inp").style.border = "1px solid #cdcdcd";
         classN = doc.querySelector(".input-liv-error").className.replace(" display", " hidden");
         doc.querySelector(".input-liv-error").className = classN;
@@ -101,27 +98,13 @@ var InputLiv = React.createClass({
 	        doc.querySelector(".input-liv-error").className = classN;
 	        doc.querySelector(".input-liv-error span").innerHTML = label.innerHTML+"格式错误";
         }
-//      else{
-//      	if(this.init().ajaxURL != ""){
-//      		$.get(
-//      			this.init().ajaxURL,
-//      			{data:data},
-//      			function(res){
-//      				inp.style.border = "1px solid red";
-//	        			classN = doc.querySelector(".input-liv-error").className.replace(" hidden", " display");
-//	        			doc.querySelector(".input-liv-error").className = classN;
-//	        			doc.querySelector(".input-liv-error span").innerHTML = res.msg;
-//      			}
-//      		)
-//      	}
-//      }
     },
     
     render: function () {
         return (
         	<div className= "input-liv">
-            {
-                (this.init().labelName=="")?<label forHtml ={this.init().ids} className="input-liv-label hidden" id={this.init().ids+"-label"} ></label>:<label forHtml ={this.init().ids} className="input-liv-label" id={this.init().ids+"-label"} >{this.init().labelName}</label>
+            	{
+                (this.init().labelName=="")? <label forHtml ={this.init().ids} className="input-liv-label hidden" id={this.init().ids+"-label"} ></label>:<label forHtml ={this.init().ids} className="input-liv-label" id={this.init().ids+"-label"} >{this.init().labelName}</label>
                 }
 	            <div className = "input-liv-package">
 	                <input type="text" className = "input-liv-inp" id={this.init().ids} onBlur={this.blur} onFocus = {this.focus}/>
@@ -129,7 +112,7 @@ var InputLiv = React.createClass({
                         <img src="./img/warning.png" /><span></span>
                     </div>
 	            </div>
-            {
+            	{
                 this.init().verifiCode==""?<div className = "input-liv-verifiCode hidden"></div>:<div className = "input-liv-verifiCode"><img src={this.init().verifiCode} /></div>
                 }
 
@@ -138,20 +121,4 @@ var InputLiv = React.createClass({
     }
 });
 
-module.exports = InputLiv;
-
-
-//var op ={
-//  ajaxURL:"index.html",
-//  labelName:"管理中心编码",
-//  type:"idCard",
-//  verifiCode:'AJAX',
-//  ids:"popupMcInp"
-//}
-//ReactDom.render(
-//  <input-liv options={op} />,
-//  document.getElementById("inputPanel")
-//);
-
-
-
+export default InputLiv;
